@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue Routher Sample</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Vue Router Sample</h1>
+      <p>
+        <router-link to="/main">Main</router-link>
+        <router-link to="login">Login</router-link >
+      </p>
+      <router-view></router-view>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <script>
+      var mainVar = {template: '<div>main</div>'};
+      var loginVar = { template: '<div>login</div>'};
+
+      var routes = [
+        {path: '/main', component: mainVar},
+        {path: '/login', component: loginVar}
+      ];
+
+      var router = new VueRouter({
+        routes
+      });
+
+      var app = new Vue({
+        router
+      }).$mount('#app');
+
+    </script>
+  </body>
+</html>
